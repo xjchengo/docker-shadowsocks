@@ -23,6 +23,11 @@ RUN cd /root && \
 # Install Shadowsocks
 RUN pip install shadowsocks
 
+ENV PASSWORD 123456
+ENV TIMEOUT 300
+ENV METHOD aes-256-cfb
+ENV WORKERS 1
+
 COPY docker-entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
 CMD ["ssserver"]
