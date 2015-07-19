@@ -23,6 +23,8 @@ RUN cd /root && \
 # Install Shadowsocks
 RUN pip install shadowsocks
 
-CMD ["ssserver -c /etc/shadowsocks.json"]
+COPY docker-entrypoint.sh /entrypoint.sh
+ENTRYPOINT ["/entrypoint.sh"]
+CMD ["ssserver"]
 
 EXPOSE 8388
